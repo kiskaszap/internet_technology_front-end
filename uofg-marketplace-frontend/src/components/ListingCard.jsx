@@ -3,7 +3,15 @@ import { Link } from "react-router-dom"
 
 function ListingCard({ listing }) {
 
-  const imageURL = listing.image || "/placeholder.jpg"
+  const backendBaseURL = import.meta.env.VITE_API_URL
+    ? import.meta.env.VITE_API_URL.replace("/api/", "")
+    : ""
+
+  const imageURL = listing.image
+    ? listing.image.startsWith("http")
+      ? listing.image
+      : `${backendBaseURL}${listing.image}`
+    : "/placeholder.jpg"
 
   return (
     <div className="bg-white border rounded-lg overflow-hidden hover:shadow-lg transition">
