@@ -1,18 +1,9 @@
-
-
-
 import React from "react"
 import { Link } from "react-router-dom"
 
 function ListingCard({ listing }) {
 
-  const backendBaseURL = import.meta.env.VITE_API_URL
-    ? import.meta.env.VITE_API_URL.replace("/api/", "")
-    : "http://127.0.0.1:8000"
-
-  const imageURL = listing.image
-    ? `${backendBaseURL}${listing.image}`
-    : "/placeholder.jpg"
+  const imageURL = listing.image || "/placeholder.jpg"
 
   return (
     <div className="bg-white border rounded-lg overflow-hidden hover:shadow-lg transition">

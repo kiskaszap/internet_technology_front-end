@@ -9,12 +9,10 @@ import api from "../api/axios"
 // Uses controlled form inputs and multipart submission for image upload.
 
 function CreateListing() {
-
   const navigate = useNavigate()
-
   const [categories, setCategories] = useState([])
    // Centralised form state to keep inputs controlled and predictable
-
+ 
   const [formData, setFormData] = useState({
     title: "",
     description: "",
